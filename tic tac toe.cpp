@@ -38,24 +38,28 @@ int colom = 0;
 std::cout << player1 << " welke rij: ";
 std::cin >> rij;
 //waneer er minder dan 1 of meer dan 3 wordt ingevoerd
-if(rij<1 || rij>3){
-	while(rij<1 || rij>3){
-	std::cout << "!Vul een getal in tussen de 1 en 3!\n";
-	std::cout << player1 << " welke rij: ";
-	std::cin >> rij;
-	}
+if(rij<1 || rij>3) {
+    while (std::cin.fail() || rij<1 || rij>3) {
+    std::cout << "!Vul een getal in tussen de 1 en 3!\n";
+    std::cout << player1 << " welke rij: ";
+    std::cin.clear();
+    std::cin.ignore(245,'n');
+    std::cin >> rij;
+    }
 }
 rij--; //de array begint met tellen bij 0, waar dus rij 1 word ingevuld.
 std::cin.ignore();
 std::cout << player1 << " welke colom: ";
 std::cin >> colom;
 //waneer er minder dan 1 of meer dan 3 wordt ingevoerd
-if(colom<1 || colom>3){
-	while(colom<1 || colom>3){
-	std::cout << "!Vul een getal in tussen de 1 en 3!\n";
-	std::cout << player1 << " welke colom: ";
-	std::cin >> colom;
-	}
+if(colom<1 || colom>3) {
+    while (std::cin.fail() || colom<1 || colom>3) {
+    std::cout << "!Vul een getal in tussen de 1 en 3!\n";
+    std::cout << player1 << " welke colom: ";
+    std::cin.clear();
+    std::cin.ignore(245,'n');
+    std::cin >> colom;
+    }
 }
 colom--; //de array begint met tellen bij 0, waar dus rij 1 word ingevuld.
 std::cin.ignore();
@@ -69,24 +73,28 @@ raster();
 std::cout << player2 << " welke rij: ";
 std::cin >> rij;
 //waneer er minder dan 1 of meer dan 3 wordt ingevoerd
-if(rij<1 || rij>3){
-	while(rij<1 || rij>3){
-	std::cout << "!Vul een getal in tussen de 1 en 3!\n";
-	std::cout << player2 << " welke rij: ";
-	std::cin >> rij;
-	}
+if(rij<1 || rij>3) {
+    while (std::cin.fail() || rij<1 || rij>3) {
+    std::cout << "!Vul een getal in tussen de 1 en 3!\n";
+    std::cout << player2 << " welke rij: ";
+    std::cin.clear();
+    std::cin.ignore(245,'n');
+    std::cin >> rij;
+    }
 }
 rij--; //de array begint met tellen bij 0, waar dus rij 1 word ingevuld.
 std::cin.ignore();
 std::cout << player2 << " welke colom: ";
 std::cin >> colom;
 //waneer er minder dan 1 of meer dan 3 wordt ingevoerd
-if(colom<1 || colom>3){
-	while(colom<1 || colom>3){
-	std::cout << "!Vul een getal in tussen de 1 en 3!\n";
-	std::cout << player2 << " welke colom: ";
-	std::cin >> colom;
-	}
+if(colom<1 || colom>3) {
+    while (std::cin.fail() || colom<1 || colom>3) {
+    std::cout << "!Vul een getal in tussen de 1 en 3!\n";
+    std::cout << player2 << " welke colom: ";
+    std::cin.clear();
+    std::cin.ignore(245,'n');
+    std::cin >> colom;
+    }
 }
 colom--; //de array begint met tellen bij 0, waar dus rij 1 word ingevuld.
 std::cin.ignore();
