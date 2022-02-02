@@ -233,6 +233,7 @@ int main()
 
 		while (menuinput != 1 && menuinput != 2 && menuinput != 3 && menuinput != 4)
 		{
+
 			std::cout << "Kruisje Rondje\n\n";
 			std::cout << "Vul graag een van de opties in, dus bijv. (1,2 of 3)\n\n";
 			std::cout << "1. Spel spelen\n\n";
@@ -248,13 +249,22 @@ int main()
 
 		else if (menuinput == 2)
 		{
+			system("CLS");
 			std::cout << "-----------------------Score---------------------------\n";
 			std::cout << "Speler 1 heeft op dit moment " << wins1 << " keer gewonnen\nSpeler 2 heeft op dit moment " << wins2 << " keer gewonnen\n";
 			std::cout << "-------------------------------------------------------\n\n";
+			system("pause");
+			system("CLS");
 		}
 		else if (menuinput == 3)
 		{
-			std::cout << "Dit komt allemaal van internet\n\n";
+			system("CLS");
+			std::cout << "Floris(TeamCaptain): Raster / Invoer / Check als er gewonnen is\n\n";
+			std::cout << "Jonathan: Kiezen van een bezette plek herhaalt de vraag / Gezorgd dat het spel bleef werken\n\n";
+			std::cout << "Leon: Menu / Scorecounter en Credits\n\n";
+			std::cout << "Mathijs\n\n";
+			system("pause");
+			system("CLS");
 		}
 		else
 		{
@@ -264,7 +274,7 @@ int main()
 
 		while (spelen == 1)
 		{
-
+			system("CLS");
 			//namen in vullen van de spelers
 			std::cout << "Wat is de naam van speler 1: ";
 			std::cin >> speler1;
@@ -317,6 +327,7 @@ int main()
 				wins2++;
 				std::cout << "gelijk spel\n";
 			}
+			system("CLS");
 			std::cout << "Wil je opnieuw beginnen?\n 1. Ja, overnieuw \n 0. Nee, stop\n";
 			std::cin >> spelen;
 			if (spelen != 1 && spelen != 0)
