@@ -20,6 +20,8 @@
 std::string speler1 = "Speler 1";
 std::string speler2 = "Speler 2";
 char array [3][3] {'.','.','.','.','.','.','.','.','.'};
+bool gewonnen = false; //waneer iemand gewonnen heeft
+int beurten = 0; //hoeveel beurten er voor bijzijn
 
 void raster(){
 	std::cout << " -----------\n";
@@ -31,7 +33,7 @@ void raster(){
 	std::cout << " -----------\n";
 }
 
-void invoer ()
+void invoer1 ()
 {
 	int rij = 0;
 	int kolom = 0;
@@ -79,6 +81,12 @@ kolomvraag1:
 	//raster laten zien om te kijken wat speler 1 heeft gedaan
 	system("CLS");
 	raster();
+	beurten++; // 1 beurt voorbij
+}
+
+void invoer2(){
+	int rij = 0;
+	int kolom = 0;
 
 	//speler 2
 rijvraag2:
@@ -100,7 +108,7 @@ rijvraag2:
 	}
 
 	std::cin.ignore();
-kolomvraag2:	
+kolomvraag2:
 	std::cout << speler2 << " welke colom: ";
 	std::cin >> kolom;
 	//waneer er minder dan 1 of meer dan 3 wordt ingevoerd
@@ -120,12 +128,14 @@ kolomvraag2:
 
 	std::cin.ignore();
 	array[rij][kolom] = 'O';
+	beurten++; // 1 beurt voorbij
 }
 
 
 
 int main()
 {
+
 	//namen in vullen van de spelers
 	std::cout << "Wat is de naam van speler 1: ";
 	std::cin >> speler1;
@@ -135,11 +145,14 @@ int main()
 	std::cin.ignore();
 	system("CLS");
 
+	while(gewonnen != true){
 	raster();
-	invoer();
+	invoer1();
+	if(beurten == 9){break;}
+	invoer2();
 	system("CLS");
-	raster();
+	}
+	std::cout << "spel is voorbij\n";
 	getchar();
 	return 0;
 }
-
