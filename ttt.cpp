@@ -21,7 +21,73 @@ std::string speler1 = "Speler 1";
 std::string speler2 = "Speler 2";
 char array [3][3] {'.','.','.','.','.','.','.','.','.'};
 bool gewonnen = false; //waneer iemand gewonnen heeft
+bool gewonnen1 = false; //waneer speler 1 gewonnen heeft
+bool gewonnen2 = false; //waneer speler 2 gewonnen heeft
 int beurten = 0; //hoeveel beurten er voor bijzijn
+
+void checkWin(){
+	//speler 1
+
+	//vertical
+	if ((array[0][0]=='X')&&(array[1][0]=='X')&&(array[2][0]=='X')){
+		gewonnen1 = true;
+	}
+	if ((array[0][1]=='X')&&(array[1][1]=='X')&&(array[2][1]=='X')){
+		gewonnen1 = true;
+	}
+	if ((array[0][2]=='X')&&(array[1][2]=='X')&&(array[2][2]=='X')){
+		gewonnen1 = true;
+	}
+	//horizontaal
+	if ((array[0][0]=='X')&&(array[0][1]=='X')&&(array[0][2]=='X')){
+		gewonnen1 = true;
+	}
+	if ((array[1][0]=='X')&&(array[1][1]=='X')&&(array[1][2]=='X')){
+		gewonnen1 = true;
+	}
+	if ((array[2][0]=='X')&&(array[2][1]=='X')&&(array[2][2]=='X')){
+		gewonnen1 = true;
+	}
+	//diagonaal
+	if ((array[0][0]=='X')&&(array[1][1]=='X')&&(array[2][2]=='X')){
+		gewonnen1 = true;
+	}
+	if ((array[0][2]=='X')&&(array[1][1]=='X')&&(array[2][0]=='X')){
+		gewonnen1 = true;
+	}
+
+	//speler 2
+
+	//vertical
+	if ((array[0][0]=='O')&&(array[1][0]=='O')&&(array[2][0]=='O')){
+		gewonnen1 = true;
+	}
+	if ((array[0][1]=='O')&&(array[1][1]=='O')&&(array[2][1]=='O')){
+		gewonnen1 = true;
+	}
+	if ((array[0][2]=='O')&&(array[1][2]=='O')&&(array[2][2]=='O')){
+		gewonnen1 = true;
+	}
+	//horizontaal
+	if ((array[0][0]=='O')&&(array[0][1]=='O')&&(array[0][2]=='O')){
+		gewonnen1 = true;
+	}
+	if ((array[1][0]=='O')&&(array[1][1]=='O')&&(array[1][2]=='O')){
+		gewonnen1 = true;
+	}
+	if ((array[2][0]=='O')&&(array[2][1]=='O')&&(array[2][2]=='O')){
+		gewonnen1 = true;
+	}
+	//diagonaal
+	if ((array[0][0]=='O')&&(array[1][1]=='O')&&(array[2][2]=='O')){
+		gewonnen1 = true;
+	}
+	if ((array[0][2]=='O')&&(array[1][1]=='O')&&(array[2][0]=='O')){
+		gewonnen1 = true;
+	}
+
+
+}
 
 void raster(){
 	std::cout << " -----------\n";
@@ -145,14 +211,24 @@ int main()
 	std::cin.ignore();
 	system("CLS");
 
-	while(gewonnen != true){
+	while(gewonnen1 != true){
 	raster();
 	invoer1();
-	if(beurten == 9){break;}
+	checkWin();
+	if(gewonnen1==true||gewonnen2==true){break;}//check in de loop
+	if(beurten == 9){break;} //check in de loop
 	invoer2();
+	checkWin();
+	if(gewonnen1==true||gewonnen2==true){break;} //check in de loop
 	system("CLS");
 	}
-	std::cout << "spel is voorbij\n";
+	if(gewonnen1==true){
+	std::cout << speler1 << " heeft gewonnen\n";
+	}else if(gewonnen2==true){
+	std::cout << speler2 << " heeft gewonnen\n";
+	}else {
+        std::cout << "gelijk spel\n";
+    }
 	getchar();
 	return 0;
 }
