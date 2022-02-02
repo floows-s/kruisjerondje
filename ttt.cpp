@@ -48,7 +48,7 @@ rijvraag1:
 		goto rijvraag1;
 	}
 	rij--; //de array begint met tellen bij 0, waar dus rij 1 word ingevuld.
-	if (array[rij][0] != '.' && array[rij][1] != '.' && array[rij][0] != '.')
+	if (array[rij][0] != '.' && array[rij][1] != '.' && array[rij][2] != '.')
 	{
 		std::cout << "Die rij is al bezet!\n";
 		goto rijvraag1;
