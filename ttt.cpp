@@ -272,6 +272,7 @@ int main()
 			std::exit;
 		}
 
+		spelen:
 		while (spelen == 1)
 		{
 			system("CLS");
@@ -290,7 +291,7 @@ int main()
 			}
 			system("CLS");
 
-			while (gewonnen1 != true)
+			while (gewonnen != true)
 			{
 				raster();
 				invoer1();
@@ -330,6 +331,17 @@ int main()
 			system("CLS");
 			std::cout << "Wil je opnieuw beginnen?\n 1. Ja, overnieuw \n 0. Nee, stop\n";
 			std::cin >> spelen;
+			if (spelen==1){
+			//reseten van waardes zo dat spel weer opnieuw kan beginnen
+			for (int i=0; i<3; i++){
+			array[0][i]='.';
+			array[1][i]='.';
+			array[2][i]='.';
+			}
+			gewonnen1 = false;
+			gewonnen2 = false;
+			goto spelen;
+			}
 			if (spelen != 1 && spelen != 0)
 			{
 				std::cout << "Dit klopt niet wat je hebt ingevuld, ik start het spel opnieuw\n\n";
